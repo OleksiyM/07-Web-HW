@@ -10,6 +10,7 @@ from models import Group, Professor, Subject, Student, Grade
 
 def insert_test_data_into_tables():
     f = Faker()
+    students_count = len(groups) * students_in_a_group_count
 
     for group in groups:
         new_group = Group(name=group)
@@ -28,14 +29,15 @@ def insert_test_data_into_tables():
             new_student = Student(name=f.name(), group_id=gr_id)
             session.add(new_student)
 
-    for grade in range(10, randint(11, 20)):
-        random_grade = randint(MIN_GRADE, MAX_GRADE)
-        random_student_id = randint(1, len(groups) * students_in_a_group_count)
-        random_subject_id = randint(1, len(subjects))
-        random_date = (datetime.now() - timedelta(days=randint(1, DAYS_DELTA))).date()
-        new_grade = Grade(grade=random_grade, student_id=random_student_id, subject_id=random_subject_id,
-                          date=random_date)
-        session.add(new_grade)
+    for student in range(1, students_count+1):
+        for grade in range(1, randint(5, 20)):
+            random_grade = randint(MIN_GRADE, MAX_GRADE)
+            random_student_id = randint(1, students_count)
+            random_subject_id = randint(1, len(subjects))
+            random_date = (datetime.now() - timedelta(days=randint(1, DAYS_DELTA))).date()
+            new_grade = Grade(grade=random_grade, student_id=student, subject_id=random_subject_id,
+                              date=random_date)
+            session.add(new_grade)
 
 
 def main():
