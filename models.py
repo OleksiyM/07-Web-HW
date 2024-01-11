@@ -67,12 +67,14 @@ class Group(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=False)
 
+
 class Student(Base):
     __tablename__ = 'students'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50))
     group_id = Column('group_id', ForeignKey('groups.id', ondelete='CASCADE', onupdate='CASCADE'))
     group = relationship('Group', backref='students')
+
 
 class Professor(Base):
     __tablename__ = 'professors'
@@ -93,7 +95,7 @@ class Grade(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     grade = Column(Integer, nullable=False)
     student_id = Column('student_id', ForeignKey('students.id', ondelete='CASCADE', onupdate='CASCADE'))
-    student = relationship('Student', backref='grades')
     subject_id = Column('subject_id', ForeignKey('subjects.id', ondelete='CASCADE', onupdate='CASCADE'))
-    subject = relationship('Subject', backref='grades')
     date = Column(Date, nullable=False)
+    student = relationship('Student', backref='grades')
+    subject = relationship('Subject', backref='grades')
