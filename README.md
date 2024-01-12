@@ -1,9 +1,6 @@
  # Project Description
 
-This project demonstrates the use of SQLAlchemy, an Object-Relational Mapper (ORM), for interacting with a PostgreSQL database in Python. It showcases various SQL query techniques, including aggregations, joins, subqueries, and filtering, while utilizing Alembic for database schema management.
-
-This project showcases the power of SQLAlchemy as an ORM for manipulating a PostgreSQL database in Python. It demonstrates various SQL queries, from aggregations and joins to subqueries and filtering, effectively bridging the gap between Python code and database operations. Alembic integration ensures smooth schema management.
-
+This project uses SQLAlchemy, an ORM, to work with a PostgreSQL database in Python. It shows how to do different SQL queries, such as aggregations, joins, subqueries, and filtering, and how to connect Python code and database actions. It also uses Alembic to manage the database schema.
 ## Features
 
 * Interacts with a PostgreSQL database using SQLAlchemy.
