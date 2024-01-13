@@ -67,7 +67,7 @@ This project demonstrates how to interact with a PostgreSQL database using SQLAl
 - **main.py:** Runs the queries and prints results.
 - **constants.py:** Stores constant values.
 - **alembic.ini** and **alembic** folder: Manage database migrations.
-- **cli_app:** See description below.
+- **cli_app:** See description [below](#cli-app-for-crud-operations).
 
 ## Technologies Used
 
