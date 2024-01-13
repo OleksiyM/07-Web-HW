@@ -40,7 +40,7 @@ python3 cli_app.py -a list -m Subject - list all subjects
 python3 cli_app.py --action update -m Student --id 52 --name 'Updated' - update student with id 52 to name 'Updated'
 python3 cli_app.py -a update -m Professor -i 1 -n 'Professor Updated' - update professor with id 1 to name 'Professor Updated'
 
-python3 cli_app.py --action remove -m Student -id 51 - remove student with id 51
+python3 cli_app.py --action remove -m Student -i 51 - remove student with id 51
 python3 cli_app.py -a remove -m Group --id 6 - remove group with id 6
 
 """
