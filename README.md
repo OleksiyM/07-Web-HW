@@ -46,12 +46,25 @@ This project demonstrates how to interact with a PostgreSQL database using SQLAl
     ```
 
 4. **Create Database Tables:**
-    ```bash
-    alembic upgrade head
-    ```
+
+   * run command inside virtual environment:
+       ```bash
+       alembic upgrade head
+       ```
+   * you should see output
+       ```log
+       INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+       INFO  [alembic.runtime.migration] Will assume transactional DDL.
+       INFO  [alembic.runtime.migration] Running upgrade  -> ca6d11849959, create tables
+       ```
+   * table schema will be created
 ![diagram.png](diagram.png)
 
 ## Usage
+- **Fill DB by random test data**
+    ```bash
+    python seeds.py
+    ```
 
 - **Run Queries:**
     ```bash
@@ -86,21 +99,33 @@ This command-line interface (CLI) app provides basic CRUD (Create, Read, Update,
 ### Usage
 
 ```bash
-python3 cli_app.py -a|--action -m|--model [-n|--name] [-i|--id] [-g|--group_id] [-p|--professor_id]
+python3 cli_app.py [-h|--help] -a|--action -m|--model [-n|--name] [-i|--id] [-g|--group_id] [-p|--professor_id]
 ```
 
 ### Arguments
 
-| Argument | Description | Required |
-|---|---|---|
-| -a, --action | Action to perform (create, list, update, remove) | Yes |
-| -m, --model | Model to use (Group, Professor, Student, Subject) | Yes |
-| -n, --name | Name of the model instance (for create and update) | No |
-| -i, --id | ID of the model instance (for update and remove) | No |
-| -g, --group_id | ID of the group (for Student create) | No |
-| -p, --professor_id | ID of the professor (for Subject create) | No |
+
+| Argument           | Description                                        | Required |
+|--------------------|----------------------------------------------------|----------|
+| -h, --help         | Show help message and exit                    | No       |
+| -a, --action       | Action to perform (create, list, update, remove)   | Yes      |
+| -m, --model        | Model to use (Group, Professor, Student, Subject)  | Yes      |
+| -n, --name         | Name of the model instance (for create and update) | No       |
+| -i, --id           | ID of the model instance (for update and remove)   | No       |
+| -g, --group_id     | ID of the group (for Student create)               | No       |
+| -p, --professor_id | ID of the professor (for Subject create)           | No       |
 
 ### Examples
+
+```bash
+python3 cli_app.py [-h] -a {create,list,update,remove} -m {Group,Professor,Student,Subject} [-n NAME] [-i ID] [-g GROUP_ID] [-p PROFESSOR_ID]
+```
+
+- Display help message with available commands
+
+```bash
+python3 cli_app.py -h
+```
 
 - Create a new student:
     ```bash
