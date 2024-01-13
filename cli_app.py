@@ -3,6 +3,8 @@ import argparse
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from models import Group, Professor, Student, Subject
+
 from db import URI
 
 engine = create_engine(URI)
